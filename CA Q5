@@ -2,6 +2,7 @@
 //Print number of button presses
 
 #include <stdio.h>
+#include <mbeb.h>
 
 #define BUTTON_PC_13
 
@@ -21,7 +22,7 @@ static int state = 0;
 
 // Main function
 int main(void) {
-    printf("Press the button to count...\n");
+    write("Press the button to count...\n");
 
     while (1) {
         // Check if the button is pressed
