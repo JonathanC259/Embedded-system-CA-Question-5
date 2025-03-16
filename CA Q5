@@ -1,0 +1,36 @@
+// Embedded systems Q5
+//Print number of button presses
+
+#include <stdio.h>
+
+#define BUTTON_PC_13
+
+// variable to store the number of button presses
+volatile int press_count = 0;
+
+//state of button
+static int state = 0;
+    if (state == 0) {
+        state = 1;
+        return 1;  // Button pressed
+    } else {
+        state = 0;
+        return 0;  // Button not pressed
+    }
+}
+
+// Main function
+int main(void) {
+    printf("Press the button to count...\n");
+
+    while (1) {
+        // Check if the button is pressed
+        if (is_button_pressed()) {
+            press_count++;  // Increment the button press count
+            printf("Button pressed %d times\n", press_count)
+        }
+    }
+
+    return 0;
+}
+
